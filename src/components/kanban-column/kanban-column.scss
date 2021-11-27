@@ -1,0 +1,79 @@
+@import '../../../colors';
+
+.kanban-column-container {
+  background-color: #f5f5f5;
+  display: flex;
+  flex-direction: column;
+  // padding: 10px 20px 10px;
+  padding: 10px;
+  width: calc(100% / 3);
+
+  @media screen and (max-width: 900px ) {
+    width: auto;
+  }
+
+  &:hover {
+    .column-head h2 {
+      padding-left: 15px;
+      &::before {
+        opacity: 1;
+      }
+    }
+  }
+
+  &.ToDo {
+    h2 {
+      &::before {
+        background-color: $to-do-color;
+      }
+    }
+  }
+  &.Doing {
+    h2 {
+      &::before {
+        background-color: $doing-color;
+      }
+    }
+  }
+  &.Done {
+    h2 {
+      &::before {
+        background-color: $done-color;
+      }
+    }
+  }
+
+  .column-head {
+    padding-bottom: 5px;
+  
+    h2 {
+      overflow: hidden;
+      position: relative;
+      margin: 0;
+      transition: padding-left 0.15s linear;
+      user-select: none;
+
+      &::before {
+        content: '';
+        display: block;
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        position: absolute;
+        top: 12px;
+        left: 0px;
+        opacity: 0;
+        transition: opacity 0.2s ease-in;
+      }
+    }
+  }
+
+  .column-body {
+    padding-bottom: 20px;
+    column-gap: 10px;
+    row-gap: 10px;
+    display: flex;
+    flex-direction: column;
+    overflow-x: scroll;
+  }
+}

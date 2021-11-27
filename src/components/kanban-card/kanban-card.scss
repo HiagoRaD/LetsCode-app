@@ -1,0 +1,204 @@
+@import '../../../colors';
+
+.kanban-card-container {
+  border: 1px solid #000000;
+  border-radius: 10px;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+  padding: 5px 10px 20px 15px;
+  position: relative;
+  border: 1px solid #e3e3e3;
+  background-color: #fff;
+  box-shadow: 0 2px 4px 0 #dbe1e6;
+  transition: box-shadow 0.3s ease-in-out;
+  
+  &::before {
+    content: '';
+    display: block;
+    position: absolute;
+    height: 100%;
+    width: 10px;
+    top: 0px;
+    left: 0px;
+  }
+
+  .preloader-wrapper {
+    display: flex;
+    margin-top: 20px;
+    justify-content: center;
+  }
+  
+
+  &.ToDo {
+    &::before {
+      background-color: $to-do-color;
+    }
+  }
+
+  &.Doing {
+    &::before {
+      background-color: $doing-color;
+    }
+  }
+
+  &.Done {
+    &::before {
+      background-color: $done-color;
+    }
+  }
+
+  .card-icon,
+  .card-icon-op {
+    path {
+      color: #183153;
+    }
+    cursor: pointer;
+    transition: opacity 0.2s ease-out, transform 0.2s linear;
+  }
+
+  .card-icon-op {
+    opacity: 0;
+
+    @media screen and (max-width: 900px ) {
+      opacity: 1;
+    }
+  }
+
+  &.EDIT {
+    .card-header {
+      padding-top: 3px;
+    }
+    .card-body {
+      height: calc(100% - 50px);
+
+      .text-container {
+        margin-top: 14px;
+      }
+    }
+  }
+
+  &:hover {
+    box-shadow: 0 2px 4px 0 #8d9093;
+
+    .card-icon-op { opacity: 1; }
+    .arrow {
+      &.left {
+        animation: slideLeft 0.3s ease-in-out;
+      }
+      &.right {
+        margin-left: 5px;
+        animation: slideRight 0.3s ease-in-out;
+      }
+    }
+  }
+
+  .svg-inline--fa {
+    &:hover {
+      transform: scale(120%);
+    }
+  }
+
+
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+
+    .card-title {
+      margin-top: 5px;
+      margin-bottom: 0px;
+      padding-right: 30px;
+      width: 100%;
+    }
+
+    .icons-container {
+      position: absolute;
+      right: 10px;
+
+      .edit {
+        margin-left: 10px;
+      }
+      
+      .delete path {
+        color: $error-color;
+      }
+
+      .cancel path {
+        color: $error-color;
+      }
+
+      .confirm {
+        margin-left: 10px;
+        path {
+          color: $success-color;
+        }
+      }
+    }
+
+    .text-input-container {
+      margin-right: 10px;
+
+      input {
+        font-size: 1.17em;
+        font-weight: bold;
+      }
+    }
+  }
+
+  .card-body {
+    position: relative;
+    padding-bottom: 10px;
+    
+    .text-container {
+      height: 100%;
+      min-height: 25px;
+      p {
+        font-size: 17px;
+        line-height: 20px;
+      }
+    }
+
+    .textarea-input-container {
+      height: 100%;
+      textarea {
+        height: 100%;
+        line-height: 20px;
+        font-size: 17px;
+      }
+    }
+  }
+  .arrow-buttons-container {
+    position: absolute;
+    right: 10px;
+    bottom: 5px;
+
+    .arrow {
+      transition: unset;
+
+      &:last-child {
+        margin-left: 5px;
+      }
+    }
+  }
+}
+
+@keyframes slideLeft {
+  from {
+    opacity: 0;
+    transform: translateX(9px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}
+
+@keyframes slideRight {
+  from {
+    opacity: 0;
+    transform: translateX(-9px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0px);
+  }
+}

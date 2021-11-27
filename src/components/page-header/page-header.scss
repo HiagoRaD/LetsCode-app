@@ -1,0 +1,30 @@
+.page-header-container {
+  width: 100%;
+  height: 100px;
+  text-align: center;
+  background-color: #1a1a1a;
+  position: absolute;
+  left: 0;
+  top: 0;
+  h1 {
+    color: #ff5454;
+    animation: slideIn 1s ease-in-out;
+  }
+  span {
+    position: absolute;
+    color: #fff;
+    bottom: 2px;
+    animation: slideIn 1s ease-in-out;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0%);
+  }
+}

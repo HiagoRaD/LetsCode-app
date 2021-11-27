@@ -1,0 +1,80 @@
+.new-card-adder-container {
+  display: flex;
+  align-items: center;
+
+  &.expanded {
+    .form-content {
+      opacity: 1;
+      max-width: 250px;
+      padding-right: 30px;
+    }
+
+    .create-card-button-container {
+      .add-button {
+        max-width: 32px;
+        .text {
+          color: transparent;
+        }
+      }
+    }
+  }
+
+  .form-content {
+    opacity: 0;
+    max-width: 0px;
+    overflow: hidden;
+    padding-right: 0px;
+    transition: max-width 0.5s ease-in-out, opacity 0.2s ease-in-out, padding-right 0.5s ease-in-out;
+
+    .textarea-input-container {
+      margin-top: 5px;
+      width: 250px;
+
+      textarea {
+        height: 100px;
+      }
+    }
+  }
+
+  .create-card-button-container {
+    .add-button {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      background-color: #3a92c7;
+      color: #fff;
+      border: none;
+      outline: none;
+      border-radius: 30px;
+      font-size: 17px;
+      height: 32px;
+      max-width: 150px;
+      width: 100%;
+      overflow: hidden;
+      padding-right: 9px;
+      transition: max-width 0.5s ease-in-out;
+
+      .text {
+        padding-right: 5px;
+        white-space: nowrap;
+        overflow: hidden;
+        color: #fff;
+        transition: color 0.3s linear;
+      }
+
+      .add-icon {
+        transition: transform 0.2s linear;
+        transform: scale(100%);
+        background-color: #3a92c7;
+      }
+
+      &:hover {
+        .add-icon {
+          transform: scale(120%);
+        }
+      }
+    }
+  }
+}

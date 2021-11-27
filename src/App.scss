@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+.App {
+  display: flex;
+  justify-content: center;
+  font-family: 'Poppins', sans-serif !important;
+}
+.app-container {
+  width: calc(100% - 30px);
+  max-width: 1000px;
+  margin: 0 auto;
+  padding-top: 110px;
+  max-height: 100vh;
+  padding-bottom: 100px;
+  
+  @media screen and (max-width: 900px ) {
+    max-height: unset;
+  }
+
+  .kanban-container {
+    margin-top: 50px;
+    margin-bottom: 100px;
+  }
+}
