@@ -53,7 +53,6 @@ export default class Api {
   };
 
   static postCard(card: ICard | ITemporaryCard) {
-    console.log('card', card);
     store.dispatch(updatePostStatus(HttpRequestStatus.ONGOING));
 
     const promise = axios.post(`${API_PREFIX}/cards`, card, getRequestConfig());
@@ -101,7 +100,6 @@ export const getArrayFromSeparatedList = (cards: ICardsList) => {
     it.forEach((item: any) => newList.push(item));
   });
 
-  console.log(newList);
   return newList;
 };
 
