@@ -10,13 +10,10 @@ interface IKanbanProps extends StateProps {};
 
 class Kanban extends React.Component<IKanbanProps, {}> {
   componentDidMount() {
-    console.log(localStorage.getItem('jwtToken'));
     Api.getCards();
   }
 
   render() {
-    console.log(this.props.store);
-
     return (
       <div className={'kanban-container'}>
         <KanbanColumn type={ListType.TO_DO} />
